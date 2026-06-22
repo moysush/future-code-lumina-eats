@@ -9,9 +9,11 @@ const port = process.env.PORT || 3000;
 const authRouter = require("./routes/auth.js");
 const foodRouter = require("./routes/food.js");
 const orderRouter = require("./routes/order.js");
+const paymentRouter = require("./routes/payment.js");
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 mongoose
   .connect(process.env.MONGODB_URI)
@@ -25,6 +27,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRouter);
 app.use("/api/food", foodRouter);
 app.use("/api/orders", orderRouter);
+app.use("/api/payment", paymentRouter);
 
 app.use((err, req, res, next) => {
   error(err.stack);
