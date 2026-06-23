@@ -5,6 +5,8 @@ import Layout from "./Layout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import OrderPage from "./pages/admin/OrderPage";
+import FoodItemPage from "./pages/admin/FoodItemPage";
 
 function App() {
   return (
@@ -19,8 +21,7 @@ function App() {
           {/* <Route index element={<Menu />} /> */}
           {/* <Route path="cart" element={<Cart />} /> */}
 
-          <Route path="/admin" element={<AdminDashboard />} />
-          {/* <Route path="/admin/orders" element={<ManageItems />} /> */}
+          <Route path="/admin/*" element={<AdminDashboard />} />
 
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

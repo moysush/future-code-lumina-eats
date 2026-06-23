@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    const foodItems = await FoodItem.findMany();
+    const foodItems = await FoodItem.find();
     res.status(200).json(foodItems);
   } catch (err) {
     console.error("Error fetching food items:", err);
@@ -38,10 +38,13 @@ router.post("/", verifyToken, verifyAdmin, async (req, res) => {
 
 router.put("/:id", verifyToken, verifyAdmin, async (req, res) => {
   try {
+    const { name, description, price, category, imageUrl, isAvailable } =
+      req.body;
+      
     const updatedFood = await FoodItem.findByIdAndUpdate(
       req.params.id,
-      req.body,
-      { returnDocument: true },
+      { name, description, price, category, imageUrl, isAvailable },
+      { returnDocument: "after", runValidators: true },
     );
     if (!updatedFood)
       return res.status(404).json({ message: "Food item not found" });

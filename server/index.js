@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const authRouter = require("./routes/auth.js");
-const foodRouter = require("./routes/food.js");
+const foodRouter = require("./routes/foods.js");
 const orderRouter = require("./routes/orders.js");
 const paymentRouter = require("./routes/payment.js");
 const userRouter = require("./routes/users.js");
@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRouter);
-app.use("/api/food", foodRouter);
+app.use("/api/foods", foodRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/payment", paymentRouter);
 app.use("/api/users", userRouter);
