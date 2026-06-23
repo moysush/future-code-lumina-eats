@@ -41,7 +41,7 @@ router.put("/:id", verifyToken, verifyAdmin, async (req, res) => {
     const updatedFood = await FoodItem.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true },
+      { returnDocument: true },
     );
     if (!updatedFood)
       return res.status(404).json({ message: "Food item not found" });

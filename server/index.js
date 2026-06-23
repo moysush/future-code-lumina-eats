@@ -8,8 +8,9 @@ const port = process.env.PORT || 3000;
 
 const authRouter = require("./routes/auth.js");
 const foodRouter = require("./routes/food.js");
-const orderRouter = require("./routes/order.js");
+const orderRouter = require("./routes/orders.js");
 const paymentRouter = require("./routes/payment.js");
+const userRouter = require("./routes/users.js");
 
 app.use(cors());
 app.use(express.json());
@@ -28,6 +29,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/food", foodRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/payment", paymentRouter);
+app.use("/api/users", userRouter);
 
 app.use((err, req, res, next) => {
   error(err.stack);
