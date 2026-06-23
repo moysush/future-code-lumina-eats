@@ -13,12 +13,16 @@ import {
   Center,
 } from "@mantine/core";
 import { getFood } from "../services/food";
-import { useDisclosure } from "@mantine/hooks";
+import { useLocalStorage } from "@mantine/hooks";
 
 const FoodMenu = () => {
   const [foods, setFoods] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+  const [cart, setCart] = useLocalStorage({
+    key: "lumina-cart",
+    defaultValue: [],
+  });
+
   useEffect(() => {
     const fetchMenu = async () => {
       try {
@@ -33,6 +37,24 @@ const FoodMenu = () => {
 
     fetchMenu();
   }, []);
+
+  const handleAddToCart = (foodItem) => {
+    setCart((currentCart) => {
+      const existingItem = currentCart.find(
+        (item) => item._id === foodItem._id,
+      );
+
+      if (existingItem) {
+        return currentCart.map((item) =>
+          item._id === foodItem._id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
+        );
+      }
+
+      return [...currentCart, { ...foodItem, quantity: 1 }];
+    });
+  };
 
   if (loading) {
     return (
@@ -70,7 +92,9 @@ const FoodMenu = () => {
               {item.description}
             </Text>
 
-            <Button mt="md">Add to Cart</Button>
+            <Button mt="md" onClick={() => handleAddToCart(item)}>
+              Add to Cart
+            </Button>
           </Card>
         ))}
       </SimpleGrid>

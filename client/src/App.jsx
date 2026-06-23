@@ -9,11 +9,13 @@ import OrderPage from "./pages/admin/OrderPage";
 import FoodItemPage from "./pages/admin/FoodItemPage";
 import FoodMenu from "./customer/FoodMenu";
 import { Cart } from "./customer/Cart";
+import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
     <Layout>
       <BrowserRouter>
+        <Navbar />
         <Notifications />
         <Routes>
           <Route path="/" element={<Home />} />
