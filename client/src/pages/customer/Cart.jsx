@@ -12,8 +12,8 @@ import {
 } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
-import { createOrder } from "../services/orders";
-import { generatePaymentHash } from "../services/payment";
+import { createOrder } from "../../services/orders";
+import { generatePaymentHash } from "../../services/payment";
 
 const Cart = () => {
   const navigate = useNavigate();

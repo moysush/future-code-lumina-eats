@@ -11,12 +11,6 @@ import {
 import { useDisclosure, useLocalStorage } from "@mantine/hooks";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const links = [
-  { link: "/menu", label: "Menu" },
-  { link: "/cart", label: "Cart" },
-  { link: "/logout", label: "Logout" },
-];
-
 const Navbar = () => {
   const [opened, { toggle, close }] = useDisclosure(false);
   const navigate = useNavigate();
@@ -32,14 +26,29 @@ const Navbar = () => {
 
   const cartItemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  const filteredLinks = !user
-    ? [
-        { link: "/login", label: "Login" },
-        { link: "/register", label: "Register" },
-      ]
-    : links;
+  let displayLinks = [];
 
-  const items = filteredLinks.map((link) => {
+  if (!user) {
+    displayLinks = [
+      { link: "/login", label: "Login" },
+      { link: "/register", label: "Register" },
+    ];
+  } else if (user.role === "admin") {
+    displayLinks = [
+      { link: "/admin/orders", label: "Orders" },
+      { link: "/admin/customers", label: "Customers" },
+      { link: "/admin/foods", label: "Manage Foods" },
+      { link: "/logout", label: "Logout" },
+    ];
+  } else {
+    displayLinks = [
+      { link: "/menu", label: "Menu" },
+      { link: "/cart", label: "Cart" },
+      { link: "/logout", label: "Logout" },
+    ];
+  }
+
+  const items = displayLinks.map((link) => {
     const isActive = location.pathname.includes(link.link);
 
     return (

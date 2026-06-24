@@ -11,7 +11,7 @@ import { useState } from "react";
 const FoodItemPage = ({ foodItems, handleFoodChange }) => {
   const foodItemRows = foodItems.map((item) => (
     <Table.Tr key={item._id}>
-      <Table.Td>{item._id}</Table.Td>
+      <Table.Td>#{item._id.slice(-6)}</Table.Td>
       <Table.Td miw={150}>
         <Textarea
           defaultValue={item.name}
@@ -48,7 +48,7 @@ const FoodItemPage = ({ foodItems, handleFoodChange }) => {
           aria-label="Update Food Price"
         />
       </Table.Td>
-      <Table.Td miw={130}>
+      <Table.Td miw={90}>
         <TextInput
           defaultValue={item.category}
           onBlur={(e) => {
@@ -72,7 +72,7 @@ const FoodItemPage = ({ foodItems, handleFoodChange }) => {
           aria-label="Update Food ImageUrl"
         />
       </Table.Td>
-      <Table.Td miw={130}>
+      <Table.Td miw={110}>
         <Select
           placeholder="Pick status"
           data={["True", "False"]}
@@ -83,7 +83,6 @@ const FoodItemPage = ({ foodItems, handleFoodChange }) => {
           aria-label="Update Food Availability"
         />
       </Table.Td>
-      {/* <Table.Td>{new Date(item.createdAt).toLocaleDateString()}</Table.Td> */}
     </Table.Tr>
   ));
 
@@ -102,7 +101,6 @@ const FoodItemPage = ({ foodItems, handleFoodChange }) => {
             <Table.Th>Category</Table.Th>
             <Table.Th>Image Url</Table.Th>
             <Table.Th>Available</Table.Th>
-            {/* <Table.Th>Date</Table.Th> */}
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>{foodItemRows}</Table.Tbody>

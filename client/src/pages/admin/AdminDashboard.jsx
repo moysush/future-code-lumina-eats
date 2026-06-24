@@ -74,70 +74,36 @@ const AdminDashboard = ({ children }) => {
   };
 
   return (
-    <AppShell
-      header={{ height: 100 }}
-      navbar={{
-        width: 250,
-        breakpoint: "sm",
-        collapsed: { mobile: !opened },
-      }}
-    >
-      <AppShell.Header ps={15} pt={15}>
-        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-        <Title>Admin Dashboard</Title>
-      </AppShell.Header>
-
-      <AppShell.Navbar>
-        <NavLink
-          component={Link}
-          to="/admin/orders"
-          label="Orders"
-          active={location.pathname.includes("/admin/orders")}
-        />
-        <NavLink
-          component={Link}
-          to="/admin/customers"
-          label="Customers"
-          active={location.pathname.includes("/admin/customers")}
-        />
-        <NavLink
-          component={Link}
-          to="/admin/foods"
-          label="Manage Food Items"
-          active={location.pathname.includes("/admin/foods")}
-        />
-      </AppShell.Navbar>
-
-      <AppShell.Main>
-        <Table.ScrollContainer type="native">
-          <Routes>
-            <Route path="/" element={<Navigate to="orders" replace />} />
-            <Route
-              path="orders"
-              element={
-                <OrderPage
-                  orders={orders}
-                  handleStatusChange={handleStatusChange}
-                />
-              }
-            />
-            <Route
-              path="customers"
-              element={<CustomerPage customers={customers} />}
-            />
-            <Route
-              path="foods"
-              element={
-                <FoodItemPage
-                  foodItems={foodItems}
-                  handleFoodChange={handleFoodChange}
-                />
-              }
-            />
-          </Routes>
-        </Table.ScrollContainer>
-      </AppShell.Main>
-    </AppShell>
+    <Container>
+      <Title>Admin Dashboard</Title>
+      <Table.ScrollContainer type="native">
+        <Routes>
+          <Route path="/" element={<Navigate to="orders" replace />} />
+          <Route
+            path="orders"
+            element={
+              <OrderPage
+                orders={orders}
+                handleStatusChange={handleStatusChange}
+              />
+            }
+          />
+          <Route
+            path="customers"
+            element={<CustomerPage customers={customers} />}
+          />
+          <Route
+            path="foods"
+            element={
+              <FoodItemPage
+                foodItems={foodItems}
+                handleFoodChange={handleFoodChange}
+              />
+            }
+          />
+        </Routes>
+      </Table.ScrollContainer>
+    </Container>
   );
 };
 

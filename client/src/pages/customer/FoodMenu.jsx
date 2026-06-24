@@ -12,7 +12,7 @@ import {
   Loader,
   Center,
 } from "@mantine/core";
-import { getFood } from "../services/food";
+import { getFood } from "../../services/food";
 import { useLocalStorage } from "@mantine/hooks";
 
 const FoodMenu = () => {

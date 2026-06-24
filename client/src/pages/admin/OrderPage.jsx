@@ -3,9 +3,9 @@ import { Paper, Select, Table, Title } from "@mantine/core";
 const OrderPage = ({ orders, handleStatusChange }) => {
   const orderRows = orders.map((order) => (
     <Table.Tr key={order._id}>
-      <Table.Td>{order._id}</Table.Td>
-      <Table.Td miw={120}>${order.totalAmount.toFixed(2)}</Table.Td>
-      <Table.Td miw={150}>
+      <Table.Td>#{order._id.slice(-6)}</Table.Td>
+      <Table.Td>${order.totalAmount.toFixed(2)}</Table.Td>
+      <Table.Td>
         <Select
           placeholder="Pick status"
           data={["Pending", "Preparing", "Ready", "Delivered"]}
@@ -14,7 +14,7 @@ const OrderPage = ({ orders, handleStatusChange }) => {
           aria-label="Update Order Status"
         />
       </Table.Td>
-      <Table.Td miw={130}>{order.paymentStatus}</Table.Td>
+      <Table.Td>{order.paymentStatus}</Table.Td>
 
       <Table.Td>{new Date(order.createdAt).toLocaleDateString()}</Table.Td>
     </Table.Tr>

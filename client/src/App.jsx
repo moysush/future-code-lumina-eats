@@ -7,8 +7,8 @@ import Register from "./pages/Register";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import OrderPage from "./pages/admin/OrderPage";
 import FoodItemPage from "./pages/admin/FoodItemPage";
-import FoodMenu from "./customer/FoodMenu";
-import Cart from "./customer/Cart";
+import FoodMenu from "./pages/customer/FoodMenu";
+import Cart from "./pages/customer/Cart";
 import Navbar from "./components/Navbar";
 import Logout from "./pages/Logout";
 import { Paper } from "@mantine/core";
@@ -28,9 +28,6 @@ function App() {
 
             <Route path="/menu" element={<FoodMenu />} />
             <Route path="/cart" element={<Cart />} />
-
-            {/* <Route index element={<Menu />} /> */}
-            {/* <Route path="cart" element={<Cart />} /> */}
 
             <Route path="/admin/*" element={<AdminDashboard />} />
 
