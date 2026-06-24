@@ -17,14 +17,6 @@ router.post("/hash", (req, res) => {
       merchantId + order_id + formattedAmount + currency + hashedSecret,
     ).toUpperCase();
 
-    console.log("Generating Hash with values:", {
-      merchantId,
-      order_id,
-      formattedAmount,
-      currency,
-      hash,
-    });
-
     res.status(200).json({ hash });
   } catch (err) {
     console.error("Hash generation error:", err);
@@ -54,12 +46,7 @@ router.post("/webhook", async (req, res) => {
         hashedSecret,
     ).toUpperCase();
 
-    if (localSig !== md5sig) {
-      console.error("Payment signature mismatch!");
-      return res.status(400).send("Invalid signature");
-    }
-
-    if (status_code === "2") {
+    if (localSig == md5sig && Number(status_code) === 2) {
       const updatedOrder = await Order.findByIdAndUpdate(
         order_id,
         {

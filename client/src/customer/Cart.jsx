@@ -48,13 +48,13 @@ const Cart = () => {
     setIsSubmitting(true);
 
     try {
-      // 1. Save to database
       const dbOrder = await createOrder({
         items: cart.map((item) => ({
           foodItemId: item._id,
           quantity: item.quantity,
         })),
       });
+      console.log(dbOrder)
 
       const generatedHash = await generatePaymentHash(
         dbOrder._id,
@@ -72,8 +72,8 @@ const Cart = () => {
       window.payhere.startPayment({
         sandbox: true,
         merchant_id: merchantId,
-        return_url: "http://localhost:5173/menu",
-        cancel_url: "http://localhost:5173/cart",
+        return_url: "",
+        cancel_url: "",
         notify_url:
           "https://prorate-pluck-moonwalk.ngrok-free.dev/api/payment/webhook",
         order_id: dbOrder._id,
@@ -83,8 +83,8 @@ const Cart = () => {
         hash: generatedHash,
         first_name: user.name,
         last_name: "",
-        email: user.email,
-        phone: user.phone,
+        email: user?.email,
+        phone: user?.phone,
         address: "",
         city: "",
         country: "",
