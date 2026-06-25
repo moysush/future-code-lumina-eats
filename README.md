@@ -31,7 +31,7 @@ Designed with clean UI principles and stable state management, this project fulf
   - Customer details tracking.
 - **System Feedback:**
   - Toast notifications implemented across all critical "write" actions (CRUD, Auth, Checkout) ensuring a highly responsive user experience.
-- **Responsive Design:** 
+- **Responsive Design:**
   - Fully optimized layout for seamless use across mobile, tablet, and desktop devices.
 
 ## 🎥 Demo
@@ -62,21 +62,22 @@ Designed with clean UI principles and stable state management, this project fulf
    ```
 
 3. **Environment Setup**
-  1. Create a `.env` or `.env.local` file in the root of your project using `.env.template` as a guide.
-  2. For the `VITE_PAYHERE_NOTIFY_URL`, provide your public backend URL (e.g., if developing locally, you can use [ngrok](https://ngrok.com/) to expose your backend port).
-   
-   ```env
-   # Server / Backend configuration
-   PORT=5000
-   MONGODB_URI=your_mongodb_connection_string
-   JWT_SECRET=jwt_secret_key
-   PAYHERE_MERCHANT_ID=your-payhere_merchant_id
-   PAYHERE_MERCHANT_SECRET=your_payhere_merchant_secret
 
-   # Client / Frontend Configuration
-   VITE_PAYHERE_MERCHANT_ID=your_merchant_id
-   VITE_PAYHERE_NOTIFY_URL=your_public_backend_url/api/payment/webhook
-   ```
+    - Create a `.env` or `.env.local` file in the root of your project using `.env.template` as a guide.
+    - For the `VITE_PAYHERE_NOTIFY_URL`, provide your public backend URL (e.g., if developing locally, you can use [ngrok](https://ngrok.com/) to expose your backend port).
+
+    ```env
+    # Server / Backend configuration
+    PORT=5000
+    MONGODB_URI=your_mongodb_connection_string
+    JWT_SECRET=jwt_secret_key
+    PAYHERE_MERCHANT_ID=your-payhere_merchant_id
+    PAYHERE_MERCHANT_SECRET=your_payhere_merchant_secret
+
+    # Client / Frontend Configuration
+    VITE_PAYHERE_MERCHANT_ID=your_merchant_id
+    VITE_PAYHERE_NOTIFY_URL=your_public_backend_url/api/payment/webhook
+  ```
 
 4. **Start the Application**
    Run this in both the client and server directories.
