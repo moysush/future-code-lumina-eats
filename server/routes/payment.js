@@ -3,7 +3,7 @@ const md5 = require("md5");
 const Order = require("../models/Order");
 
 const router = express.Router();
-const secret = process.env.PAYHERE_SECRET;
+const secret = process.env.PAYHERE_MERCHANT_SECRET;
 const merchantId = process.env.PAYHERE_MERCHANT_ID;
 
 router.post("/hash", (req, res) => {

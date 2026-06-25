@@ -45,6 +45,7 @@ const Navbar = () => {
 
   if (!user) {
     displayLinks = [
+      { link: "/menu", label: "Menu" },
       { link: "/login", label: "Login" },
       { link: "/register", label: "Register" },
     ];

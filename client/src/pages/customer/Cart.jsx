@@ -20,6 +20,7 @@ const Cart = () => {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const merchantId = import.meta.env.VITE_PAYHERE_MERCHANT_ID;
+  const notifyUrl = import.meta.env.VITE_PAYHERE_NOTIFY_URL;
   const [user] = useLocalStorage({
     key: "user",
     defaultValue: null,
@@ -102,8 +103,7 @@ const Cart = () => {
         merchant_id: merchantId,
         return_url: "",
         cancel_url: "",
-        notify_url:
-          "https://prorate-pluck-moonwalk.ngrok-free.dev/api/payment/webhook",
+        notify_url: notifyUrl,
         order_id: dbOrder._id,
         items: "LuminaEats Order",
         amount: cartTotal.toFixed(2),

@@ -18,12 +18,15 @@ export default function Register() {
     initialValues: {
       name: "",
       email: "",
+      phone: "",
       password: "",
       confirmPassword: "",
       role: "customer",
     },
     validate: {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+      phone: (value) =>
+        value && value.length < 9 ? "Phone number is too short" : null,
       password: (value) =>
         value.length > 5
           ? null
@@ -74,6 +77,12 @@ export default function Register() {
             mt="md"
             {...form.getInputProps("email")}
           />
+          <TextInput
+            label="Phone"
+            placeholder="+8801111111111"
+            mt="md"
+            {...form.getInputProps("phone")}
+          />
           <PasswordInput
             label="Password"
             placeholder="••••••••"
@@ -88,15 +97,6 @@ export default function Register() {
             mt="md"
             {...form.getInputProps("confirmPassword")}
           />
-          {/* <Select
-            label="Register as"
-            data={[
-              { value: "customer", label: "Customer" },
-              { value: "admin", label: "Admin" },
-            ]}
-            mt="md"
-            {...form.getInputProps("role")}
-          /> */}
           <Button fullWidth mt="xl" type="submit">
             Register
           </Button>

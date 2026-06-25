@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Notifications />
-        <Paper py={100}>
+        <Paper py={{base: 50, md: 100}}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
