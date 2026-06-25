@@ -75,6 +75,7 @@ Designed with clean UI principles and stable state management, this project fulf
     PAYHERE_MERCHANT_SECRET=your_payhere_merchant_secret
 
     # Client / Frontend Configuration
+    VITE_VITE_API_BASE_URL=http://localhost:5000/api
     VITE_PAYHERE_MERCHANT_ID=your_merchant_id
     VITE_PAYHERE_NOTIFY_URL=your_public_backend_url/api/payment/webhook
     ```
