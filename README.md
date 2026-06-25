@@ -27,10 +27,12 @@ Designed with clean UI principles and stable state management, this project fulf
   - Integrated PayHere Sandbox payment gateway for secure, simulated transactions.
 - **Admin Dashboard:**
   - Comprehensive CRUD operations for Food Items.
-  - Real-time order status updates.
+  - Seamless order status updates.
   - Customer details tracking.
 - **System Feedback:**
   - Toast notifications implemented across all critical "write" actions (CRUD, Auth, Checkout) ensuring a highly responsive user experience.
+- **Responsive Design:** 
+  - Fully optimized layout for seamless use across mobile, tablet, and desktop devices.
 
 ## 🎥 Demo
 
@@ -39,8 +41,6 @@ Designed with clean UI principles and stable state management, this project fulf
 ## 💻 Getting Started
 
 ### Prerequisites
-
-Ensure you have the following installed on your local machine:
 
 - Node.js (v18+)
 - MongoDB (Local or Atlas URI)
