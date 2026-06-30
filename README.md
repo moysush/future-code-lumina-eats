@@ -1,7 +1,7 @@
 # 🍔 LuminaEats
 
 <p align="center">
-  <em>A full-stack MERN application.</em>
+  <em>A modern full-stack food ordering web application built with MERN.</em>
 </p>
 
 ## 🚀 Project Overview
