@@ -1,7 +1,7 @@
 # 🍔 LuminaEats
 
 <p align="center">
-  <em>A full-stack MERN application built for the Future Code Technology Internship Assessment.</em>
+  <em>A full-stack MERN application.</em>
 </p>
 
 ## 🚀 Project Overview
